@@ -39,7 +39,10 @@ class ControladorUsuarios {
                         $_SESSION["usuario"] = $respuesta["usuario"];
                         $_SESSION["rol"] = $respuesta["rol"];
 
-                        echo '<script> 
+                        // Ventana de avisos emergentes (CU21/CU22), abierta una sola vez por sesión
+                        $_SESSION["avisosPendientes"] = true;
+
+                        echo '<script>
                             window.location = "inicio";
                         </script>';
                     } 

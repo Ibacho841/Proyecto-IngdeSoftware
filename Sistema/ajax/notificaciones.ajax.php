@@ -1,5 +1,5 @@
 <?php
-require_once "../modelos/productos.modelo.php";
+require_once "../modelos/producto.modelo.php";
 require_once "../controladores/productos.controlador.php";
 
 header('Content-Type: application/json; charset=utf-8');
