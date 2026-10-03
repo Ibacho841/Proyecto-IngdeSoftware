@@ -184,7 +184,7 @@ $(document).on("click", ".btnAgregarProducto", function () {
           '<div class="col-sm-2">' +
             '<div class="input-group justify-content-center">' +
               '<button class="btn btn-sm btn-outline-secondary btnRestar" type="button">–</button>' +
-              '<input type="number" class="form-control form-control-sm nuevaCantidad text-center" name="nuevaCantidad" min="1" stock="' + stock + '" value="1" style="width: 60px;">' +
+              '<input type="number" class="form-control form-control-sm nuevaCantidad text-center" name="nuevaCantidad" min="1" step="1" stock="' + stock + '" value="1" style="width: 60px;">' +
               '<button class="btn btn-sm btn-outline-secondary btnSumar" type="button">+</button>' +
             '</div>' +
           '</div>' +
@@ -236,6 +236,12 @@ $(".formularioVenta").on("input change", "input.nuevaCantidad", function () {
   const precioReal = Number(inputPrecio.attr("precioReal"));
   let cantidad = Number($(this).val());
   const stockDisponible = Number($(this).attr("stock"));
+
+  // Solo cantidades enteras: si viene un decimal (ej. 1,5) se baja al entero
+  if (!Number.isInteger(cantidad)) {
+    cantidad = Math.max(1, Math.floor(cantidad));
+    $(this).val(cantidad);
+  }
 
   if (isNaN(cantidad) || cantidad < 1) {
     cantidad = 1; $(this).val(1);
