@@ -483,7 +483,7 @@ $totales = ControladorVentas::ctrResumenMetodoPagoDirecto();
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-hand-holding-usd"></i></span>
                 </div>
-                <input type="text" class="form-control" id="editarPrecioCompra" name="editarPrecioCompra" placeholder="Ej: 3500">
+                <input type="number" class="form-control" id="editarPrecioCompra" name="editarPrecioCompra" placeholder="Ej: 3500" min="0" step="any" required>
               </div>
               <small class="text-muted">Solo números, sin puntos ni comas.</small>
             </div>
@@ -495,7 +495,7 @@ $totales = ControladorVentas::ctrResumenMetodoPagoDirecto();
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-cash-register"></i></span>
                 </div>
-                <input type="text" class="form-control" id="editarPrecioVenta" name="editarPrecioVenta" placeholder="Ej: 4990">
+                <input type="number" class="form-control" id="editarPrecioVenta" name="editarPrecioVenta" placeholder="Ej: 4990" min="0" step="any" required>
               </div>
             </div>
 

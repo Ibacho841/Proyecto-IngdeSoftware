@@ -150,6 +150,22 @@ class ControladorProductos{
 
         if(isset($_POST["editarProducto"])){
 
+            // Precios: solo numeros mayores o iguales a 0 (hasta 2 decimales)
+            if (
+                !preg_match('/^\d+(\.\d{1,2})?$/', $_POST["editarPrecioCompra"] ?? "") ||
+                !preg_match('/^\d+(\.\d{1,2})?$/', $_POST["editarPrecioVenta"] ?? "")
+            ) {
+                echo '<script>
+                    Swal.fire({
+                        icon: "error",
+                        title: "Precio inválido",
+                        text: "Los precios deben ser números mayores o iguales a 0.",
+                        confirmButtonText: "Cerrar"
+                    }).then((r)=>{ if(r.isConfirmed){ window.location="crear-producto"; }});
+                </script>';
+                return;
+            }
+
             if (
                 preg_match('/^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s]+$/u', $_POST["editarNombreProducto"]) &&
                 preg_match('/^[a-zA-Z0-9\sáéíóúÁÉÍÓÚñÑ().,-]+$/u', $_POST["editarFormato"])

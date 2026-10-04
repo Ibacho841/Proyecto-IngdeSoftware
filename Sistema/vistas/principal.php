@@ -105,6 +105,9 @@ if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok") {
 
 </div> <!-- Esto parece un div suelto innecesario, podrías eliminarlo si no da problemas -->
 
+<!-- Script principal con funcionalidades personalizadas -->
+<script src="vistas/js/principal.js"></script>
+
 <!-- Avisos emergentes al iniciar sesión (stock crítico / cierre de caja pendiente) -->
 <script src="vistas/js/avisos.js"></script>
 
